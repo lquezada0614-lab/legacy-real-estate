@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alejandra Gonzalez | Luxury Real Estate & Investment</title>
+  <meta name="description" content="Building Wealth. Delivering Care. 15+ years of nursing excellence meets strategic real estate investing." />
+
+  <!-- Google Fonts: Montserrat, Open Sans, Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #F5F5F5;
+      color: #1A1A1A;
+      overflow-x: hidden;
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #1a1a1a; }
+    ::-webkit-scrollbar-thumb { background: #c5a059; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #d4b76a; }
+
+    /* ===== FONT FAMILIES ===== */
+    .font-heading { font-family: 'Montserrat', sans-serif; }
+    .font-body { font-family: 'Open Sans', sans-serif; }
+    .font-serif { font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif; }
+
+    /* ===== COLORS ===== */
+    :root {
+      --gold: #C5A059;
+      --gold-light: #D4B76A;
+      --gold-dark: #A8873D;
+      --gold-50: #FBF7EE;
+      --gold-100: #F5ECD5;
+      --gold-200: #EBDAAB;
+      --gold-300: #DFC681;
+      --gold-400: #D4B36A;
+      --gold-500: #C5A059;
+      --black: #000000;
+      --charcoal: #1A1A1A;
+      --dark-gray: #2D2D2D;
+      --medium-gray: #4A4A4A;
+      --light-gray: #F5F5F5;
+      --white: #FFFFFF;
+      --red: #8B1A1A;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUpSmall {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes moveBorder {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes cardFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-in-up {
+      animation: fadeInUp 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+      opacity: 0;
+    }
+    .animate-fade-in-up-small {
+      animation: fadeInUpSmall 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+      opacity: 0;
+    }
+
+    /* ===== GOLD GRADIENT TEXT ===== */
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #c5a059 0%, #d4b76a 40%, #e8cc7a 60%, #c5a059 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 50;
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+    .navbar.scrolled {
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .navbar-inner {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 5rem;
+    }
+    .navbar-logo {
+      height: 3rem;
+      width: auto;
+      object-fit: contain;
+      mix-blend-mode: lighten;
+    }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-link {
+      color: rgba(255,255,255,0.8);
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+      letter-spacing: 0.05em;
+    }
+    .nav-link:hover { color: var(--gold); }
+
+    /* ===== MOVING BORDER BUTTON ===== */
+    .gold-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 2.25rem;
+      height: 3.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.125rem;
+      color: var(--gold);
+      background: rgba(26, 26, 26, 0.9);
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      border-radius: 0.5rem;
+      text-decoration: none;
+      overflow: hidden;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .gold-btn:hover { background: var(--charcoal); }
+    .gold-btn::before {
+      content: '';
+      position: absolute;
+      top: -2px; left: -2px; right: -2px; bottom: -2px;
+      border-radius: 0.5rem;
+      background: conic-gradient(from 0deg, transparent 0%, transparent 60%, var(--gold-400) 75%, transparent 90%);
+      animation: moveBorder 3s linear infinite;
+      z-index: -1;
+    }
+    .gold-btn::after {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      background: rgba(26, 26, 26, 0.95);
+      border-radius: calc(0.5rem - 1px);
+      z-index: -1;
+    }
+
+    .gold-btn-sm {
+      height: 2.5rem;
+      padding: 0 1.25rem;
+      font-size: 0.875rem;
+    }
+    .gold-btn-md {
+      height: 3rem;
+      padding: 0 1.75rem;
+      font-size: 1rem;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--black);
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, #000 0%, rgba(26,26,26,0.5) 50%, #000 100%);
+    }
+    .hero-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px; height: 800px;
+      background: rgba(197, 160, 89, 0.03);
+      border-radius: 50%;
+      filter: blur(64px);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0 1rem;
+      width: 100%;
+      max-width: 72rem;
+      margin: 0 auto;
+    }
+    .hero-overline {
+      font-family: 'Montserrat', sans-serif;
+      color: rgba(197, 160, 89, 0.6);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      animation-delay: 0.2s;
+    }
+    .hero-heading {
+      perspective: 1200px;
+    }
+    .hero-heading h1 {
+      font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+      font-weight: 300;
+      color: var(--gold);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      text-shadow: 0 4px 30px rgba(197, 160, 89, 0.15);
+      transform-origin: 50% 100%;
+      transform-style: preserve-3d;
+      font-size: 3.5rem;
+    }
+    .hero-heading h1:nth-child(2) { margin-top: -2px; }
+    .hero-heading h1 .dot { color: var(--gold-light); }
+    .hero-heading h1:first-child { animation-delay: 0.4s; }
+    .hero-heading h1:nth-child(2) { animation-delay: 0.6s; }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(212, 183, 106, 0.7);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      animation-delay: 0.9s;
+    }
+    .hero-tagline {
+      color: rgba(255,255,255,0.5);
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.875rem;
+      max-width: 32rem;
+      margin: 2rem auto 0;
+      line-height: 1.7;
+      letter-spacing: 0.05em;
+      animation-delay: 1.2s;
+    }
+    .hero-cta {
+      margin-top: 2.5rem;
+      animation-delay: 1.5s;
+    }
+    .hero-bottom-fade {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 8rem;
+      background: linear-gradient(to top, #000, transparent);
+    }
+
+    /* Responsive hero text sizes */
+    @media (min-width: 640px) {
+      .hero-overline { font-size: 0.875rem; margin-bottom: 3rem; }
+      .hero-heading h1 { font-size: 5.5rem; }
+      .hero-heading h1:nth-child(2) { margin-top: -4px; }
+      .hero-subtitle { font-size: 2rem; margin-top: 1.5rem; }
+      .hero-tagline { font-size: 1rem; margin-top: 3rem; }
+      .hero-cta { margin-top: 3.5rem; }
+    }
+    @media (min-width: 768px) {
+      .hero-heading h1 { font-size: 7.5rem; }
+      .hero-subtitle { font-size: 2.5rem; }
+      .hero-tagline { font-size: 1.125rem; }
+    }
+    @media (min-width: 1024px) {
+      .hero-heading h1 { font-size: 9rem; }
+      .hero-subtitle { font-size: 3rem; }
+    }
+    @media (min-width: 1280px) {
+      .hero-heading h1 { font-size: 11rem; }
+    }
+
+    /* ===== ABOUT SECTION ===== */
+    .about { background: var(--light-gray); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      min-height: 600px;
+    }
+    @media (min-width: 1024px) {
+      .about-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .about-left {
+      background: var(--charcoal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+    }
+    .about-photo-ring {
+      position: relative;
+    }
+    .about-photo-ring::before {
+      content: '';
+      position: absolute;
+      inset: -1rem;
+      border-radius: 50%;
+      border: 1px solid rgba(197, 160, 89, 0.2);
+    }
+    .about-photo {
+      width: 14rem; height: 14rem;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      background: var(--dark-gray);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media (min-width: 768px) {
+      .about-photo { width: 18rem; height: 18rem; }
+    }
+    .about-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .about-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 2rem;
+    }
+    @media (min-width: 1024px) {
+      .about-right { padding: 4rem; }
+    }
+    .about-label {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .about-label span:first-child {
+      display: inline-block;
+      height: 1px;
+      width: 2rem;
+      background: var(--gold);
+    }
+    .about-label span:last-child {
+      color: var(--gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .about-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .about-title { font-size: 2.25rem; }
+    }
+    .about-text {
+      color: var(--medium-gray);
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .gold-divider {
+      display: flex;
+      align-items: center;
+      margin: 2rem 0;
+    }
+    .gold-divider span {
+      display: block;
+      height: 1px;
+      width: 4rem;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-icon {
+      width: 1.5rem; height: 1.5rem;
+      color: var(--gold);
+      margin: 0 auto 0.5rem;
+    }
+    .stat-value {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--charcoal);
+    }
+    .stat-label {
+      color: var(--medium-gray);
+      font-size: 0.75rem;
+      font-family: 'Open Sans', sans-serif;
+      margin-top: 0.25rem;
+    }
+
+    /* ===== LISTINGS SECTION ===== */
+    .listings {
+      background: var(--light-gray);
+      padding: 5rem 0 7rem;
+    }
+    .listings-inner {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-heading-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .section-heading-line .line {
+      height: 1px;
+      width: 3rem;
+      background: var(--gold);
+    }
+    .section-heading-line .label {
+      color: var(--gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .section-heading h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+    @media (min-width: 768px) {
+      .section-heading h2 { font-size: 2.25rem; }
+    }
+
+    /* Filter Tabs */
+    .filter-tabs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 3rem;
+    }
+    .filter-tab {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding-bottom: 0.5rem;
+      border: none;
+      border-bottom: 2px solid transparent;
+      background: none;
+      color: var(--medium-gray);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-tab:hover { color: var(--charcoal); }
+    .filter-tab.active {
+      border-bottom-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* Property Cards */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .cards-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+      background: white;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid transparent;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+      animation: cardFadeIn 0.4s ease-out forwards;
+      opacity: 0;
+    }
+    .card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+      transform: translateY(-4px);
+    }
+    .card-image {
+      position: relative;
+      aspect-ratio: 4/3;
+      background: var(--light-gray);
+      overflow: hidden;
+    }
+    .card-image-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, rgba(26,26,26,0.1), rgba(26,26,26,0.05));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-image-placeholder span {
+      color: rgba(74,74,74,0.3);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.875rem;
+    }
+    .card-badge {
+      position: absolute;
+      top: 0.75rem; left: 0.75rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+    }
+    .badge-sale { background: var(--gold); color: #000; }
+    .badge-rent { background: var(--charcoal); color: #fff; }
+    .badge-pending { background: var(--red); color: #fff; }
+    .card-body { padding: 1.25rem; }
+    .card-price {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    .card-price.sale { color: var(--gold-dark); }
+    .card-price.rent { color: var(--charcoal); }
+    .card-price .mo {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--medium-gray);
+    }
+    .card-address {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.875rem;
+      color: var(--charcoal);
+      margin-top: 0.25rem;
+    }
+    .card-city {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.75rem;
+      color: var(--medium-gray);
+    }
+    .card-stats {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #f3f3f3;
+    }
+    .card-stat {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      color: var(--medium-gray);
+    }
+    .card-stat svg { width: 1rem; height: 1rem; }
+    .card-stat span { font-size: 0.875rem; font-family: 'Open Sans', sans-serif; }
+    .card-agent {
+      font-size: 0.75rem;
+      color: rgba(74,74,74,0.6);
+      font-family: 'Open Sans', sans-serif;
+      margin-top: 0.75rem;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer { background: var(--black); color: white; }
+    .footer-inner {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 4rem 1rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    @media (min-width: 768px) {
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .footer-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .footer h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      color: var(--gold);
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+    }
+    .footer-logo {
+      height: 3rem;
+      width: auto;
+      object-fit: contain;
+      mix-blend-mode: lighten;
+    }
+    .footer-tagline {
+      color: rgba(255,255,255,0.6);
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.875rem;
+      line-height: 1.7;
+      margin-top: 1rem;
+    }
+    .footer-brokerage {
+      color: rgba(255,255,255,0.4);
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 0.75rem; }
+    .footer-links a {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: color 0.2s;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .footer-contact-item svg { width: 1rem; height: 1rem; color: var(--gold); flex-shrink: 0; }
+    .footer-contact-item span { color: rgba(255,255,255,0.6); font-size: 0.875rem; font-family: 'Open Sans', sans-serif; }
+    .footer-socials {
+      display: flex;
+      gap: 1rem;
+    }
+    .footer-social {
+      width: 2.5rem; height: 2.5rem;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .footer-social:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-social svg { width: 1rem; height: 1rem; }
+    .footer-bottom {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(197, 160, 89, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.75rem;
+      font-family: 'Open Sans', sans-serif;
+    }
+    @media (min-width: 768px) {
+      .footer-bottom { flex-direction: row; justify-content: space-between; }
+    }
+
+    /* ===== MOBILE NAV ===== */
+    .mobile-menu-btn {
+      display: block;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    @media (min-width: 1024px) {
+      .mobile-menu-btn { display: none; }
+      .nav-links { display: flex !important; }
+      .nav-cta { display: block !important; }
+    }
+    @media (max-width: 1023px) {
+      .nav-links { display: none !important; }
+      .nav-cta { display: none !important; }
+    }
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      background: rgba(0,0,0,0.98);
+      backdrop-filter: blur(12px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .mobile-overlay.open { display: flex; }
+    .mobile-overlay a {
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .mobile-overlay a:hover { color: var(--gold); }
+
+    /* Stagger delays for card animations */
+    .card:nth-child(1) { animation-delay: 0s; }
+    .card:nth-child(2) { animation-delay: 0.08s; }
+    .card:nth-child(3) { animation-delay: 0.16s; }
+    .card:nth-child(4) { animation-delay: 0.24s; }
+    .card:nth-child(5) { animation-delay: 0.32s; }
+    .card:nth-child(6) { animation-delay: 0.40s; }
+    .card:nth-child(7) { animation-delay: 0.48s; }
+    .card:nth-child(8) { animation-delay: 0.56s; }
+    .card:nth-child(9) { animation-delay: 0.64s; }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      color: var(--medium-gray);
+      font-family: 'Open Sans', sans-serif;
+      padding: 3rem 0;
+      display: none;
+    }
+
+    /* ===== LEAD MODAL ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: var(--charcoal);
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      border-radius: 1rem;
+      padding: 2.5rem 2rem;
+      width: 100%;
+      max-width: 28rem;
+      position: relative;
+      animation: fadeInUpSmall 0.3s ease-out;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      cursor: pointer;
+      padding: 0.25rem;
+      transition: color 0.2s;
+    }
+    .modal-close:hover { color: var(--gold); }
+    .modal-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .modal-subtitle {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-label {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+    .form-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(197, 160, 89, 0.2);
+      border-radius: 0.5rem;
+      color: white;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-input::placeholder { color: rgba(255,255,255,0.25); }
+    .form-input:focus { border-color: var(--gold); }
+    .form-submit { width: 100%; margin-top: 0.5rem; }
+    .form-message {
+      text-align: center;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.875rem;
+      margin-top: 1rem;
+      display: none;
+    }
+    .form-message.success { color: #4ade80; display: block; }
+    .form-message.error { color: #f87171; display: block; }
+  </style>
+</head>
+
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="#hero">
+        <img src="public/images/logo.jpeg" alt="Legacy Real Estate" class="navbar-logo" />
+      </a>
+      <div class="nav-links">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#listings" class="nav-link">Properties</a>
+        <a href="#about" class="nav-link">About</a>
+      </div>
+      <div class="nav-cta">
+        <a href="javascript:void(0)" class="gold-btn gold-btn-sm" onclick="openLeadModal()">Schedule Consultation</a>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleMobile()" aria-label="Toggle menu" id="mobileBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="menuIcon"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="closeIcon" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-overlay" id="mobileOverlay">
+    <a href="#hero" onclick="closeMobile()">Home</a>
+    <a href="#listings" onclick="closeMobile()">Properties</a>
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="javascript:void(0)" class="gold-btn" onclick="closeMobile();openLeadModal()">Schedule Consultation</a>
+  </div>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-glow"></div>
+
+    <div class="hero-content">
+      <p class="hero-overline animate-fade-in-up-small" style="animation-delay:0.2s">
+        Legacy Real Estate
+      </p>
+
+      <div class="hero-heading">
+        <h1 class="animate-fade-in-up" style="animation-delay:0.4s">
+          Building
+        </h1>
+        <h1 class="animate-fade-in-up" style="animation-delay:0.6s">
+          Wealth<span class="dot">.</span>
+        </h1>
+      </div>
+
+      <p class="hero-subtitle animate-fade-in-up" style="animation-delay:0.9s">
+        Delivering Care.
+      </p>
+
+      <p class="hero-tagline animate-fade-in-up-small" style="animation-delay:1.2s">
+        From 15 years of patient care to expert real estate investing.
+        Your advocate in the market.
+      </p>
+
+      <div class="hero-cta animate-fade-in-up-small" style="animation-delay:1.5s">
+        <a href="#listings" class="gold-btn">Explore Properties</a>
+      </div>
+    </div>
+
+    <div class="hero-bottom-fade"></div>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section class="about" id="about">
+    <div class="about-grid">
+      <div class="about-left">
+        <div class="about-photo-ring">
+          <div class="about-photo">
+            <img src="public/images/headshot.jpg" alt="Alejandra Gonzalez" />
+          </div>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="about-label">
+          <span></span>
+          <span>About</span>
+        </div>
+        <h2 class="about-title">From Bedside to Business</h2>
+        <p class="about-text">
+          For over 15 years, I served as a Nursing Assistant, dedicating my
+          career to patient advocacy, meticulous attention to detail, and
+          genuine care for the people I served. That experience didn't just
+          shape my character &mdash; it became the foundation of my real
+          estate practice.
+        </p>
+        <p class="about-text">
+          Real estate requires the same patience, advocacy, and attention to
+          detail as the medical field. I don't just close deals &mdash; I take
+          care of people. Whether you're buying your first home,
+          investing in rental properties, or looking to build generational
+          wealth, I bring the same level of dedication and precision that
+          kept my patients safe.
+        </p>
+        <div class="gold-divider"><span></span></div>
+        <div class="stats-grid">
+          <div class="stat">
+            <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>
+            <p class="stat-value">15+</p>
+            <p class="stat-label">Years in Nursing</p>
+          </div>
+          <div class="stat">
+            <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <p class="stat-value">Licensed</p>
+            <p class="stat-label">Real Estate Agent</p>
+          </div>
+          <div class="stat">
+            <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            <p class="stat-value">Active</p>
+            <p class="stat-label">Investor & Host</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LISTINGS SECTION ===== -->
+  <section class="listings" id="listings">
+    <div class="listings-inner">
+      <div class="section-heading">
+        <div class="section-heading-line">
+          <span class="line"></span>
+          <span class="label">Properties</span>
+          <span class="line"></span>
+        </div>
+        <h2>Featured Listings</h2>
+      </div>
+
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="for-sale">For Sale</button>
+        <button class="filter-tab" data-filter="for-rent">For Rent</button>
+        <button class="filter-tab" data-filter="investment">Investment</button>
+      </div>
+
+      <div class="cards-grid" id="cardsGrid"></div>
+      <p class="empty-state" id="emptyState">No properties found in this category.</p>
+    </div>
+  </section>
+
+
+  <!-- ===== LEAD CAPTURE MODAL ===== -->
+  <div class="modal-overlay" id="leadModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeLeadModal()" aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <h3 class="modal-title">Schedule a Consultation</h3>
+      <p class="modal-subtitle">Tell me about yourself and the property you're interested in. I'll reach out within 24 hours.</p>
+      <form id="leadForm" onsubmit="submitLead(event)">
+        <div class="form-group">
+          <label class="form-label" for="leadName">Full Name</label>
+          <input class="form-input" type="text" id="leadName" name="name" placeholder="Your full name" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="leadPhone">Phone Number</label>
+          <input class="form-input" type="tel" id="leadPhone" name="phone" placeholder="(555) 123-4567" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="leadAddress">Property Address of Interest</label>
+          <input class="form-input" type="text" id="leadAddress" name="address" placeholder="1234 Sunset Blvd, Los Angeles, CA" required />
+        </div>
+        <button type="submit" class="gold-btn form-submit">Send My Info</button>
+      </form>
+      <p class="form-message" id="formMessage"></p>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div>
+          <img src="public/images/logo.jpeg" alt="Legacy Real Estate" class="footer-logo" />
+          <div class="gold-divider" style="margin:1rem 0"><span></span></div>
+          <p class="footer-tagline">Building Wealth. Delivering Care.</p>
+          <p class="footer-brokerage">Legacy Real Estate</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#listings">Properties</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4>Contact</h4>
+          <div class="footer-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>(555) 123-4567</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span>alejandra@legacyrealestate.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>California</span>
+          </div>
+        </div>
+
+        <!-- Social -->
+        <div>
+          <h4>Follow</h4>
+          <div class="footer-socials">
+            <a href="#" class="footer-social" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Alejandra Gonzalez. All rights reserved.</p>
+        <p>DRE #02207755 | Broker: Legacy Real Estate DRE #02165291</p>
+        <p>Powered by Legacy Real Estate</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== LISTINGS DATA =====
+    const listings = [
+      { id:"prop-001", street:"1234 Sunset Blvd", city:"Los Angeles", state:"CA", zip:"90028", price:1250000, status:"for-sale", type:"single-family", beds:4, baths:3, sqft:2800 },
+      { id:"prop-002", street:"5678 Ocean Ave", city:"Santa Monica", state:"CA", zip:"90401", price:2100000, status:"for-sale", type:"condo", beds:3, baths:2, sqft:1950 },
+      { id:"prop-003", street:"910 Maple Dr", city:"Beverly Hills", state:"CA", zip:"90210", price:3450000, status:"for-sale", type:"single-family", beds:5, baths:4, sqft:4200 },
+      { id:"prop-004", street:"2222 Hillside Terrace", city:"Pasadena", state:"CA", zip:"91101", price:875000, status:"for-sale", type:"townhouse", beds:3, baths:2, sqft:1650 },
+      { id:"prop-005", street:"456 Grand Ave", city:"Long Beach", state:"CA", zip:"90802", price:4500, status:"for-rent", type:"condo", beds:2, baths:2, sqft:1200 },
+      { id:"prop-006", street:"789 Figueroa St", city:"Downtown LA", state:"CA", zip:"90017", price:3800, status:"for-rent", type:"condo", beds:1, baths:1, sqft:850 },
+      { id:"prop-007", street:"345 N Larchmont Blvd", city:"Los Angeles", state:"CA", zip:"90004", price:1650000, status:"pending", type:"multi-family", beds:6, baths:4, sqft:3200 },
+      { id:"prop-008", street:"1100 Wilshire Blvd", city:"Santa Monica", state:"CA", zip:"90403", price:1890000, status:"for-sale", type:"single-family", beds:4, baths:3, sqft:2400 },
+      { id:"prop-009", street:"567 Eagle Rock Blvd", city:"Eagle Rock", state:"CA", zip:"90041", price:720000, status:"for-sale", type:"single-family", beds:3, baths:2, sqft:1400 },
+    ];
+
+    function formatPrice(p) {
+      return "$" + p.toLocaleString();
+    }
+
+    function badgeClass(status) {
+      if (status === "for-sale") return "badge-sale";
+      if (status === "for-rent") return "badge-rent";
+      return "badge-pending";
+    }
+    function badgeLabel(status) {
+      if (status === "for-sale") return "For Sale";
+      if (status === "for-rent") return "For Rent";
+      return "Pending";
+    }
+
+    const bedIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>';
+    const bathIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><line x1="10" x2="8" y1="5" y2="7"/><line x1="2" x2="22" y1="12" y2="12"/><line x1="7" x2="7" y1="19" y2="21"/><line x1="17" x2="17" y1="19" y2="21"/></svg>';
+    const sqftIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" x2="14" y1="3" y2="10"/><line x1="3" x2="10" y1="21" y2="14"/></svg>';
+
+    function renderCards(filter) {
+      const grid = document.getElementById("cardsGrid");
+      const empty = document.getElementById("emptyState");
+      let filtered = listings;
+      if (filter === "for-sale") filtered = listings.filter(l => l.status === "for-sale");
+      else if (filter === "for-rent") filtered = listings.filter(l => l.status === "for-rent");
+      else if (filter === "investment") filtered = listings.filter(l => l.type === "multi-family");
+
+      if (filtered.length === 0) {
+        grid.innerHTML = "";
+        empty.style.display = "block";
+        return;
+      }
+      empty.style.display = "none";
+
+      grid.innerHTML = filtered.map(l => {
+        const isRental = l.status === "for-rent";
+        return `<div class="card">
+          <div class="card-image">
+            <div class="card-image-placeholder"><span>Property Image</span></div>
+            <span class="card-badge ${badgeClass(l.status)}">${badgeLabel(l.status)}</span>
+          </div>
+          <div class="card-body">
+            <p class="card-price ${isRental ? 'rent' : 'sale'}">${formatPrice(l.price)}${isRental ? '<span class="mo">/mo</span>' : ''}</p>
+            <p class="card-address">${l.street}</p>
+            <p class="card-city">${l.city}, ${l.state} ${l.zip}</p>
+            <div class="card-stats">
+              <div class="card-stat">${bedIcon}<span>${l.beds} Beds</span></div>
+              <div class="card-stat">${bathIcon}<span>${l.baths} Baths</span></div>
+              <div class="card-stat">${sqftIcon}<span>${l.sqft.toLocaleString()} ft&sup2;</span></div>
+            </div>
+            <p class="card-agent">Listed by Alejandra Gonzalez</p>
+          </div>
+        </div>`;
+      }).join("");
+    }
+
+    // Filter tabs
+    document.querySelectorAll(".filter-tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        document.querySelectorAll(".filter-tab").forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        renderCards(tab.dataset.filter);
+      });
+    });
+
+    // Initial render
+    renderCards("all");
+
+    // Navbar scroll
+    window.addEventListener("scroll", () => {
+      document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    // Mobile menu
+    function toggleMobile() {
+      const overlay = document.getElementById("mobileOverlay");
+      const isOpen = overlay.classList.toggle("open");
+      document.getElementById("menuIcon").style.display = isOpen ? "none" : "block";
+      document.getElementById("closeIcon").style.display = isOpen ? "block" : "none";
+    }
+    function closeMobile() {
+      document.getElementById("mobileOverlay").classList.remove("open");
+      document.getElementById("menuIcon").style.display = "block";
+      document.getElementById("closeIcon").style.display = "none";
+    }
+
+
+    // ===== LEAD MODAL =====
+    function openLeadModal() {
+      document.getElementById("leadModal").classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+    function closeLeadModal() {
+      document.getElementById("leadModal").classList.remove("open");
+      document.body.style.overflow = "";
+      document.getElementById("leadForm").reset();
+      var msg = document.getElementById("formMessage");
+      msg.className = "form-message";
+      msg.textContent = "";
+    }
+    document.getElementById("leadModal").addEventListener("click", function(e) {
+      if (e.target === this) closeLeadModal();
+    });
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") closeLeadModal();
+    });
+
+    // ===== SUBMIT LEAD TO PYTHON BACKEND =====
+    async function submitLead(e) {
+      e.preventDefault();
+      var msg = document.getElementById("formMessage");
+      var btn = e.target.querySelector("button[type=submit]");
+      msg.className = "form-message";
+      msg.textContent = "";
+      btn.textContent = "Sending...";
+      btn.disabled = true;
+
+      var payload = {
+        name:    document.getElementById("leadName").value.trim(),
+        phone:   document.getElementById("leadPhone").value.trim(),
+        address: document.getElementById("leadAddress").value.trim()
+      };
+
+      try {
+        var res = await fetch("http://localhost:8000/submit-lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        var data = await res.json();
+        if (res.ok) {
+          msg.className = "form-message success";
+          msg.textContent = "Thank you! Alejandra will be in touch soon.";
+          document.getElementById("leadForm").reset();
+        } else {
+          msg.className = "form-message error";
+          msg.textContent = data.detail || "Something went wrong. Please try again.";
+        }
+      } catch (err) {
+        msg.className = "form-message error";
+        msg.textContent = "Cannot reach the server. Please try again later.";
+      } finally {
+        btn.textContent = "Send My Info";
+        btn.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>
