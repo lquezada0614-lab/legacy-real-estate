@@ -67,15 +67,6 @@ function Sparkline({ data, className }: { data: number[]; className?: string }) 
   );
 }
 
-const floatTransition = {
-  y: {
-    duration: 4,
-    repeat: Infinity,
-    repeatType: "reverse" as const,
-    ease: "easeInOut",
-  },
-};
-
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
@@ -83,7 +74,13 @@ const cardVariants = {
     y: [0, -6, 0],
     transition: {
       opacity: { duration: 0.6, delay: i * 0.1 },
-      y: { ...floatTransition.y, delay: i * 0.3 },
+      y: {
+        duration: 4,
+        repeat: Infinity,
+        repeatType: "reverse" as const,
+        ease: "easeInOut" as const,
+        delay: i * 0.3,
+      },
     },
   }),
 };
