@@ -8,10 +8,10 @@ export function HeroSection() {
   const { open: openModal } = useLeadModal();
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-neutral-950 text-white flex flex-col md:flex-row">
+    <div className="relative min-h-[70vh] md:min-h-[85vh] w-full overflow-hidden bg-neutral-950 text-white flex flex-col md:flex-row">
 
       {/* LEFT SIDE: CONTENT */}
-      <div className="relative z-20 flex w-full flex-col justify-center px-5 py-24 md:h-full md:w-1/2 md:px-20 md:py-0 bg-neutral-950">
+      <div className="relative z-20 flex w-full flex-col justify-center px-5 pt-12 pb-16 md:min-h-[85vh] md:w-1/2 md:px-20 md:pt-40 md:pb-20 bg-neutral-950">
         <motion.p
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -94,7 +94,7 @@ export function HeroSection() {
       </div>
 
       {/* RIGHT SIDE: VIDEO LOOP */}
-      <div className="relative h-[40vh] w-full md:h-full md:w-1/2 bg-neutral-900">
+      <div className="relative h-[40vh] w-full md:h-auto md:min-h-[85vh] md:w-1/2 bg-neutral-900">
         <motion.div
            initial={{ opacity: 0 }}
            animate={{ opacity: 1 }}
