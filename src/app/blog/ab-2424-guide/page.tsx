@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "The 90-Day Equity Shield: Navigating AB 2424 in the Central Valley",
     description:
       "How AB 2424 gives Central Valley homeowners 90 days of protection and a 67% FMV bidding floor at trustee sales.",
-    url: "https://www.alejandrahomes.org/blog/ab-2424-guide",
+    url: "https://alejandrahomes.org/blog/ab-2424-guide",
     type: "article",
   },
 };

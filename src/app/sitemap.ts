@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.alejandrahomes.org';
+  const baseUrl = 'https://alejandrahomes.org';
 
   const routes = ['', '/cash-offer', '/blog', '/blog/ab-2424-guide', '/foreclosures', '/home-valuation', '/affordability-calculator'].map(
     (route) => ({

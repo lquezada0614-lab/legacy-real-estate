@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://www.alejandrahomes.org/sitemap.xml',
+    sitemap: 'https://alejandrahomes.org/sitemap.xml',
   };
 }
