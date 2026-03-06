@@ -76,7 +76,7 @@ export function ExclusivePortfolio() {
           <p className="mb-4 font-sans text-xs uppercase tracking-[0.3em] text-[#C5A059]">
             Exclusive Portfolio &bull; NR.2
           </p>
-          <h2 className="font-serif text-4xl font-light tracking-tight text-white md:text-6xl">
+          <h2 className="font-serif text-3xl font-light tracking-tight text-white md:text-6xl">
             Central Valley{" "}
             <span className="italic text-[#C5A059]">Homes</span>
           </h2>

@@ -138,7 +138,7 @@ function BlogContent() {
             <p className="mb-4 font-sans text-xs uppercase tracking-[0.3em]" style={{ color: GOLD }}>
               Legacy Intelligence Report &bull; March 2026
             </p>
-            <h1 className="mb-4 font-serif text-5xl font-light leading-tight tracking-tight text-white md:text-7xl">
+            <h1 className="mb-4 font-serif text-3xl font-light leading-tight tracking-tight text-white md:text-7xl">
               Central Valley{" "}
               <span className="italic" style={{ color: GOLD }}>
                 Market Pulse

@@ -107,7 +107,7 @@ export function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
-            className="mb-8 font-serif text-4xl font-light leading-tight tracking-tight text-white md:text-5xl lg:text-6xl"
+            className="mb-8 font-serif text-3xl font-light leading-tight tracking-tight text-white md:text-5xl lg:text-6xl"
           >
             From Critical Care
             <br />
@@ -143,7 +143,7 @@ export function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
-            className="flex gap-12 border-t border-white/10 pt-8"
+            className="flex flex-wrap gap-6 md:gap-12 border-t border-white/10 pt-8"
           >
             {stats.map((stat) => (
               <div key={stat.label}>

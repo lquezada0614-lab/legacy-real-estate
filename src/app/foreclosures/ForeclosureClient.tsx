@@ -117,7 +117,7 @@ export default function ForeclosureClient() {
           <p className="mb-4 font-sans text-xs uppercase tracking-[0.3em] text-[#C5A059]">
             California Foreclosure Help 2026
           </p>
-          <h1 className="mb-6 font-serif text-4xl font-light leading-tight tracking-tight text-white md:text-6xl lg:text-7xl">
+          <h1 className="mb-6 font-serif text-3xl font-light leading-tight tracking-tight text-white md:text-6xl lg:text-7xl">
             Facing Foreclosure in the Central Valley?{" "}
             <span className="italic text-[#C5A059]">
               You Have More Options Than You Think.

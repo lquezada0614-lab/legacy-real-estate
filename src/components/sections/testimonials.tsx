@@ -87,7 +87,7 @@ export function Testimonials() {
           <p className="mb-4 font-sans text-xs uppercase tracking-[0.3em] text-[#C5A059]">
             Testimonials
           </p>
-          <h2 className="font-serif text-4xl font-light tracking-tight text-white md:text-5xl lg:text-6xl">
+          <h2 className="font-serif text-3xl font-light tracking-tight text-white md:text-5xl lg:text-6xl">
             What My Clients{" "}
             <span className="italic text-[#C5A059]">Say.</span>
           </h2>

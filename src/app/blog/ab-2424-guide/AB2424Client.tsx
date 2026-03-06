@@ -93,7 +93,7 @@ function ArticleContent() {
               </span>
             </div>
 
-            <h1 className="mb-6 font-serif text-4xl font-light leading-tight tracking-tight text-white md:text-6xl lg:text-7xl">
+            <h1 className="mb-6 font-serif text-3xl font-light leading-tight tracking-tight text-white md:text-6xl lg:text-7xl">
               The 90-Day{" "}
               <span className="italic" style={{ color: GOLD }}>
                 Equity Shield

@@ -68,19 +68,19 @@ export default function CashOfferClient() {
           <p className="hidden text-xs uppercase tracking-[0.15em] text-[#C5A059] sm:block">
             Need to Sell Fast? Call Now
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 md:gap-6">
             <a
               href="tel:+15599811026"
-              className="flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-[#C5A059]"
+              className="flex items-center gap-2 text-xs md:text-sm text-white/70 transition-colors hover:text-[#C5A059]"
             >
-              <Phone className="h-3.5 w-3.5" />
+              <Phone className="h-3.5 w-3.5 shrink-0" />
               (559) 981-1026
             </a>
             <a
               href="mailto:alegonz086@gmail.com"
-              className="flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-[#C5A059]"
+              className="hidden items-center gap-2 text-sm text-white/70 transition-colors hover:text-[#C5A059] sm:flex"
             >
-              <Mail className="h-3.5 w-3.5" />
+              <Mail className="h-3.5 w-3.5 shrink-0" />
               alegonz086@gmail.com
             </a>
           </div>
@@ -102,7 +102,7 @@ export default function CashOfferClient() {
           <p className="mb-4 font-sans text-xs uppercase tracking-[0.3em] text-[#C5A059]">
             Cash Home Buyers &bull; Central Valley
           </p>
-          <h1 className="mb-6 font-serif text-4xl font-light leading-tight tracking-tight text-white md:text-6xl lg:text-7xl">
+          <h1 className="mb-6 font-serif text-3xl font-light leading-tight tracking-tight text-white md:text-6xl lg:text-7xl">
             Need to Sell Fast? Get a Guaranteed Cash Offer in Orosi &amp; the{" "}
             <span className="italic text-[#C5A059]">Central Valley.</span>
           </h1>
@@ -211,9 +211,9 @@ export default function CashOfferClient() {
 
           <div className="grid gap-6 md:grid-cols-2">
             {/* Traditional */}
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-5 md:p-8">
               <div className="mb-6 flex items-center gap-3">
-                <Home className="h-5 w-5 text-white/40" />
+                <Home className="h-5 w-5 shrink-0 text-white/40" />
                 <h3 className="font-sans text-sm font-semibold uppercase tracking-[0.15em] text-white/60">
                   Traditional Listing
                 </h3>
@@ -229,9 +229,9 @@ export default function CashOfferClient() {
             </div>
 
             {/* Cash Offer */}
-            <div className="rounded-2xl border border-[#C5A059]/30 bg-[#C5A059]/5 p-8 shadow-[0_0_30px_rgba(197,160,89,0.06)]">
+            <div className="rounded-2xl border border-[#C5A059]/30 bg-[#C5A059]/5 p-5 md:p-8 shadow-[0_0_30px_rgba(197,160,89,0.06)]">
               <div className="mb-6 flex items-center gap-3">
-                <BadgeDollarSign className="h-5 w-5 text-[#C5A059]" />
+                <BadgeDollarSign className="h-5 w-5 shrink-0 text-[#C5A059]" />
                 <h3 className="font-sans text-sm font-semibold uppercase tracking-[0.15em] text-[#C5A059]">
                   My Cash Offer
                 </h3>

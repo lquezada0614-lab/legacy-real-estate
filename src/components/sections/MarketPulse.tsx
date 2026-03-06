@@ -100,7 +100,7 @@ export function MarketPulse() {
           <p className="mb-4 font-sans text-xs uppercase tracking-[0.3em]" style={{ color: GOLD }}>
             Central Valley Market Pulse &bull; NR.2
           </p>
-          <h2 className="font-serif text-4xl font-light tracking-tight text-white md:text-6xl">
+          <h2 className="font-serif text-3xl font-light tracking-tight text-white md:text-6xl">
             Visalia & Fresno Housing Market{" "}
             <span className="italic" style={{ color: GOLD }}>Analytics</span>
           </h2>
