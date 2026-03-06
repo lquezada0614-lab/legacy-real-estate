@@ -34,7 +34,7 @@ export function AboutSection() {
     name: "Legacy Real Estate Inc",
     description:
       "Luxury real estate brokerage serving California's Central Valley — Fresno, Visalia, Tulare, Orosi, Dinuba & Reedley.",
-    url: "https://legacyrealestatefresnoca.com",
+    url: "https://www.alejandrahomes.org",
     telephone: "+15599811026",
     email: "alegonz086@gmail.com",
     address: {

@@ -16,6 +16,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.alejandrahomes.org"),
   title: "Legacy Real Estate Fresno | Central Valley Real Estate | Broker Leo Quezada",
   description:
     "Legacy Real Estate Inc — Central Valley real estate brokerage led by Broker Leo Quezada (DRE #02165291). Luxury homes, investment properties, and foreclosure solutions in Fresno, Visalia, Tulare, Orosi, Dinuba & Reedley.",
@@ -35,8 +36,16 @@ export const metadata: Metadata = {
     title: "Legacy Real Estate Inc | Central Valley Real Estate",
     description:
       "Luxury real estate services in California's Central Valley. Led by Broker Leo Quezada — DRE #02165291.",
+    url: "https://www.alejandrahomes.org",
+    siteName: "Legacy Real Estate Inc",
     type: "website",
     locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Legacy Real Estate Inc | Central Valley Real Estate",
+    description:
+      "Luxury real estate services in California's Central Valley. Led by Broker Leo Quezada — DRE #02165291.",
   },
 };
 
