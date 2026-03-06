@@ -65,13 +65,6 @@ function transformValue(
   return shouldClamp ? clamp(mapped, Math.min(outMin, outMax), Math.max(outMin, outMax)) : mapped;
 }
 
-function parseColor(color: string): [number, number, number] {
-  const match = color.match(/\d+/g);
-  if (match && match.length >= 3) {
-    return [parseInt(match[0]), parseInt(match[1]), parseInt(match[2])];
-  }
-  return [255, 255, 255];
-}
 
 export function VaporizeTextCycle({
   texts = ["Next.js", "React"],
@@ -90,6 +83,7 @@ export function VaporizeTextCycle({
   },
   direction = "left-to-right",
   alignment = "center",
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   tag = Tag.P,
 }: VaporizeTextCycleProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -228,7 +222,6 @@ export function VaporizeTextCycle({
         lastTime = time;
         stateStartTime = time;
       }
-      const dt = time - lastTime;
       lastTime = time;
 
       const w = wrapperSize.width;

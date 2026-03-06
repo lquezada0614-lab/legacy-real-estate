@@ -16,8 +16,6 @@ import {
   Shield,
 } from "lucide-react";
 import {
-  LineChart,
-  Line,
   BarChart,
   Bar,
   XAxis,
@@ -63,7 +61,6 @@ const foreclosureData = [
 ];
 
 const GOLD = "#D4AF37";
-const GOLD_LIGHT = "rgba(212, 175, 55, 0.15)";
 
 // ── Custom Tooltip ─────────────────────────────────────────────────────────
 
