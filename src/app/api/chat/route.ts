@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
 
   if (!apiKey) {
     return NextResponse.json(
-      { error: "AI service not configured" },
+      { error: "AI service not configured", hint: "GEMINI_API_KEY env var is missing" },
       { status: 503 }
     );
   }
@@ -117,7 +117,7 @@ export async function POST(req: NextRequest) {
       }
 
       return NextResponse.json(
-        { error: "AI service temporarily unavailable", debug: errorBody.slice(0, 300) },
+        { error: "AI service temporarily unavailable", answer: "I'm temporarily unavailable. Please call Alejandra directly at (559) 981-1026 for immediate assistance.", debug: errorBody.slice(0, 500) },
         { status: 502 }
       );
     }
