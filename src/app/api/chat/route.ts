@@ -117,7 +117,7 @@ export async function POST(req: NextRequest) {
       }
 
       return NextResponse.json(
-        { error: "AI service temporarily unavailable" },
+        { error: "AI service temporarily unavailable", debug: errorBody.slice(0, 300) },
         { status: 502 }
       );
     }
