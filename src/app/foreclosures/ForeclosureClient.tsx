@@ -65,14 +65,29 @@ export default function ForeclosureClient() {
 
   async function handleAISubmit(question: string) {
     console.log("[LEAD] Foreclosure inquiry:", question);
-    await new Promise((r) => setTimeout(r, 2000));
-    setMessages((prev) => [
-      ...prev,
-      {
-        question,
-        answer: `Thanks for your question about "${question}". Alejandra will review your situation and reach out within 24 hours with personalized guidance.`,
-      },
-    ]);
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: question, history: messages }),
+      });
+      const data = await res.json();
+      if (data.answer) {
+        setMessages((prev) => [...prev, { question, answer: data.answer }]);
+        return;
+      }
+      if (!res.ok) throw new Error(data.error || "Request failed");
+      setMessages((prev) => [...prev, { question, answer: data.answer }]);
+    } catch {
+      setMessages((prev) => [
+        ...prev,
+        {
+          question,
+          answer:
+            "I'm having trouble connecting right now. Please call Alejandra directly at (559) 981-1026 for immediate assistance.",
+        },
+      ]);
+    }
   }
 
   return (

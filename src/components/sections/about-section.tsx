@@ -18,14 +18,29 @@ export function AboutSection() {
 
   async function handleAISubmit(question: string) {
     console.log("[LEAD] AI Inquiry:", question);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setMessages((prev) => [
-      ...prev,
-      {
-        question,
-        answer: `Thanks! I've received your inquiry about "${question}". I'll reach out to you soon!`,
-      },
-    ]);
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: question, history: messages }),
+      });
+      const data = await res.json();
+      if (data.answer) {
+        setMessages((prev) => [...prev, { question, answer: data.answer }]);
+        return;
+      }
+      if (!res.ok) throw new Error(data.error || "Request failed");
+      setMessages((prev) => [...prev, { question, answer: data.answer }]);
+    } catch {
+      setMessages((prev) => [
+        ...prev,
+        {
+          question,
+          answer:
+            "I'm having trouble connecting right now. Please call Alejandra directly at (559) 981-1026 for immediate assistance.",
+        },
+      ]);
+    }
   }
 
   const jsonLd = {
