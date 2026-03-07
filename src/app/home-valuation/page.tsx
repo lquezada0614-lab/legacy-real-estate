@@ -21,6 +21,7 @@ export default function HomeValuationPage() {
   const [error, setError] = useState("");
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [fetchingSuggestions, setFetchingSuggestions] = useState(false);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -48,15 +49,18 @@ export default function HomeValuationPage() {
     }
 
     debounceRef.current = setTimeout(async () => {
+      setFetchingSuggestions(true);
       try {
         const res = await fetch(
-          `http://localhost:8000/autocomplete?query=${encodeURIComponent(value)}`
+          `/api/autocomplete?query=${encodeURIComponent(value)}`
         );
         const data = await res.json();
         setSuggestions(data.results ?? []);
         setShowSuggestions(true);
       } catch {
         setSuggestions([]);
+      } finally {
+        setFetchingSuggestions(false);
       }
     }, 300);
   }
@@ -72,18 +76,26 @@ export default function HomeValuationPage() {
     e.preventDefault();
     setError("");
 
-    if (!zpid) {
-      setError("Please select an address from the suggestions.");
+    if (!address.trim()) {
+      setError("Please enter a property address.");
       return;
     }
 
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:8000/submit-lead", {
+      const res = await fetch("/api/submit-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ first_name: firstName, last_name: lastName, phone, email, address: String(zpid) }),
+        body: JSON.stringify({
+          first_name: firstName,
+          last_name: lastName,
+          phone,
+          email,
+          address: address.trim(),
+          zpid: zpid ? String(zpid) : null,
+          display_address: address.trim(),
+        }),
       });
 
       if (!res.ok) {
@@ -113,16 +125,16 @@ export default function HomeValuationPage() {
 
   return (
     <main className="min-h-screen bg-neutral-950 text-white font-sans">
-      <div className="container mx-auto px-6 py-32 flex flex-col items-center justify-center text-center">
-        <h1 className="font-serif text-5xl md:text-7xl mb-6">
+      <div className="container mx-auto px-4 sm:px-6 py-20 sm:py-32 flex flex-col items-center justify-center text-center">
+        <h1 className="font-serif text-3xl sm:text-5xl md:text-7xl mb-4 sm:mb-6">
           Your Home&apos;s <span className="text-[#C5A059] italic">True Value.</span>
         </h1>
-        <p className="text-white/70 max-w-2xl mb-12 font-light">
+        <p className="text-white/70 max-w-2xl mb-8 sm:mb-12 font-light text-sm sm:text-base">
           Automated estimates are a starting point. As a licensed broker and investor,
           I provide a comprehensive market analysis based on real data and renovation potential.
         </p>
 
-        <form onSubmit={handleSubmit} className="w-full max-w-md bg-neutral-900 p-8 rounded-lg border border-white/10">
+        <form onSubmit={handleSubmit} className="w-full max-w-md bg-neutral-900 p-5 sm:p-8 rounded-lg border border-white/10">
           {/* Address input with autocomplete */}
           <div ref={wrapperRef} className="relative mb-4">
             <input
@@ -130,10 +142,17 @@ export default function HomeValuationPage() {
               placeholder="Start typing a property address..."
               value={address}
               onChange={(e) => handleAddressChange(e.target.value)}
+              onFocus={() => { if (suggestions.length > 0) setShowSuggestions(true); }}
               required
               autoComplete="off"
-              className="w-full bg-neutral-950 border border-white/20 p-4 rounded text-white focus:border-[#C5A059] outline-none transition-colors"
+              className="w-full bg-neutral-950 border border-white/20 p-3 sm:p-4 rounded text-sm sm:text-base text-white focus:border-[#C5A059] outline-none transition-colors"
             />
+            {fetchingSuggestions && (
+              <p className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-white/30">Searching...</p>
+            )}
+            {zpid && !fetchingSuggestions && (
+              <p className="mt-1 text-xs text-emerald-400/70">Address matched</p>
+            )}
             {showSuggestions && suggestions.length > 0 && (
               <ul className="absolute z-50 left-0 right-0 mt-1 max-h-60 overflow-y-auto rounded border border-white/10 bg-neutral-900 shadow-xl">
                 {suggestions.map((s) => (
@@ -141,7 +160,7 @@ export default function HomeValuationPage() {
                     <button
                       type="button"
                       onClick={() => selectSuggestion(s)}
-                      className="w-full px-4 py-3 text-left text-sm text-white/80 hover:bg-[#C5A059]/10 hover:text-white transition-colors"
+                      className="w-full px-4 py-3.5 text-left text-sm text-white/80 hover:bg-[#C5A059]/10 active:bg-[#C5A059]/20 hover:text-white transition-colors border-b border-white/5 last:border-b-0"
                     >
                       {s.display}
                     </button>
@@ -158,7 +177,7 @@ export default function HomeValuationPage() {
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
               required
-              className="w-full bg-neutral-950 border border-white/20 p-4 rounded text-white focus:border-[#C5A059] outline-none transition-colors"
+              className="w-full bg-neutral-950 border border-white/20 p-3 sm:p-4 rounded text-sm sm:text-base text-white focus:border-[#C5A059] outline-none transition-colors"
             />
             <input
               type="text"
@@ -166,7 +185,7 @@ export default function HomeValuationPage() {
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               required
-              className="w-full bg-neutral-950 border border-white/20 p-4 rounded text-white focus:border-[#C5A059] outline-none transition-colors"
+              className="w-full bg-neutral-950 border border-white/20 p-3 sm:p-4 rounded text-sm sm:text-base text-white focus:border-[#C5A059] outline-none transition-colors"
             />
           </div>
 
@@ -176,7 +195,7 @@ export default function HomeValuationPage() {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             required
-            className="w-full bg-neutral-950 border border-white/20 p-4 rounded mb-4 text-white focus:border-[#C5A059] outline-none transition-colors"
+            className="w-full bg-neutral-950 border border-white/20 p-3 sm:p-4 rounded mb-4 text-sm sm:text-base text-white focus:border-[#C5A059] outline-none transition-colors"
           />
 
           <input
@@ -185,7 +204,7 @@ export default function HomeValuationPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full bg-neutral-950 border border-white/20 p-4 rounded mb-6 text-white focus:border-[#C5A059] outline-none transition-colors"
+            className="w-full bg-neutral-950 border border-white/20 p-3 sm:p-4 rounded mb-6 text-sm sm:text-base text-white focus:border-[#C5A059] outline-none transition-colors"
           />
 
           {error && <p className="text-red-400 text-sm mb-4">{error}</p>}
@@ -197,13 +216,13 @@ export default function HomeValuationPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-[#C5A059] text-black font-bold py-4 rounded uppercase tracking-widest hover:bg-white transition-colors disabled:opacity-50"
+            className="w-full bg-[#C5A059] text-black font-bold py-3.5 sm:py-4 rounded uppercase tracking-widest text-sm sm:text-base hover:bg-white transition-colors disabled:opacity-50 min-h-[48px]"
           >
             {loading ? "Analyzing..." : "Get Free Report"}
           </button>
         </form>
 
-        <Link href="/" className="mt-8 text-xs uppercase tracking-widest text-white/50 hover:text-white transition-colors">
+        <Link href="/" className="mt-8 text-xs uppercase tracking-widest text-white/50 hover:text-white transition-colors min-h-[44px] flex items-center">
           &larr; Back to Home
         </Link>
       </div>
