@@ -1,8 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export const runtime = "edge";
-export const preferredRegion = "sfo1";
-
 const SYSTEM_PROMPT = `You are **Alejandra's Market Assistant**, a sophisticated local expert AI representing Legacy Real Estate Inc (DRE #02165291) in California's Central Valley.
 
 ## Your Personality & Style
