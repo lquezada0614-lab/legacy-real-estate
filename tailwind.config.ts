@@ -80,6 +80,7 @@ const config: Config = {
       animation: {
         shimmer: "shimmer 2.5s ease-in-out infinite",
         "fade-in": "fadeIn 0.6s ease-out forwards",
+        "fade-in-up": "fadeInUp 0.5s ease-out forwards",
         "slide-up": "slideUp 0.6s ease-out forwards",
         "slow-zoom": "slowZoom 15s ease-out forwards",
       },
@@ -91,6 +92,10 @@ const config: Config = {
         fadeIn: {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
+        },
+        fadeInUp: {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
         slideUp: {
           "0%": { opacity: "0", transform: "translateY(20px)" },
