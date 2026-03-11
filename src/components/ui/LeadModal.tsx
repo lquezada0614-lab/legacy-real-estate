@@ -77,7 +77,7 @@ function LeadModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
     debounceRef.current = setTimeout(async () => {
       try {
         const res = await fetch(
-          `http://localhost:8000/autocomplete?query=${encodeURIComponent(value)}`
+          `/api/autocomplete?query=${encodeURIComponent(value)}`
         );
         const data = await res.json();
         setSuggestions(data.results ?? []);
@@ -112,7 +112,7 @@ function LeadModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
     setMessage("");
 
     try {
-      const res = await fetch("http://localhost:8001/api/incoming-lead", {
+      const res = await fetch("/api/book-consultation", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

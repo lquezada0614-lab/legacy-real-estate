@@ -73,16 +73,26 @@ export async function POST(req: NextRequest) {
       estimated_value: String(propertyData.zestimate),
     };
 
-    // Fire-and-forget CRM push (only works if CRM is running)
-    try {
-      await fetch("http://localhost:8001/api/incoming-lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(crmPayload),
-        signal: AbortSignal.timeout(3000),
-      });
-    } catch {
-      // CRM not available — that's fine
+    // Fire-and-forget CRM push
+    const crmBackendUrl = process.env.CRM_BACKEND_URL;
+    const crmApiKey = process.env.CRM_API_KEY;
+    if (crmBackendUrl) {
+      try {
+        const crmHeaders: Record<string, string> = {
+          "Content-Type": "application/json",
+        };
+        if (crmApiKey) {
+          crmHeaders["x-api-key"] = crmApiKey;
+        }
+        await fetch(`${crmBackendUrl}/api/incoming-lead`, {
+          method: "POST",
+          headers: crmHeaders,
+          body: JSON.stringify(crmPayload),
+          signal: AbortSignal.timeout(5000),
+        });
+      } catch {
+        // CRM not available — that's fine
+      }
     }
 
     return NextResponse.json({
