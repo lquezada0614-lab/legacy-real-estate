@@ -18,7 +18,7 @@ from skills.zillow_skill import get_property_data
 from skills.nurture_skill import nurture_lead
 
 # Main CRM webhook endpoint (running on port 8001)
-CRM_WEBHOOK_URL = "http://localhost:8001/api/incoming-lead"
+CRM_WEBHOOK_URL = "http://localhost:8001/webhook"
 
 app = FastAPI(
     title="Legacy Real Estate CRM",
@@ -82,12 +82,11 @@ async def submit_lead(req: LeadRequest):
     try:
         async with httpx.AsyncClient(timeout=5) as client:
             resp = await client.post(CRM_WEBHOOK_URL, json={
-                "name": lead["name"],
-                "phone": lead["phone"],
+                "email": lead.get("email", f"{lead['phone']}@lead.local"),
                 "address": lead["address"],
-                "intent": lead["intent"],
-                "priority": lead["priority"],
-                "zillow": property_data,
+                "estimated_value": str(property_data.get("zestimate", "N/A")),
+                "price": str(property_data.get("price", "N/A")),
+                "lead_source": lead.get("intent", "Unknown"),
             })
             resp.raise_for_status()
             crm_result = resp.json()

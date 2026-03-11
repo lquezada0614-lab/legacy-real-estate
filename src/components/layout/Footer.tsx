@@ -124,6 +124,21 @@ export function Footer() {
           <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/20">
             &copy; 2026 Alejandra Gonzalez &bull; Legacy Real Estate Inc
           </p>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/privacy"
+              className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/20 transition-colors hover:text-gold"
+            >
+              Privacy Policy
+            </Link>
+            <span className="text-white/10">|</span>
+            <Link
+              href="/terms"
+              className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/20 transition-colors hover:text-gold"
+            >
+              Terms &amp; Conditions
+            </Link>
+          </div>
           <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/20">
             California&apos;s Central Valley
           </p>
