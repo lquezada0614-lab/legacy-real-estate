@@ -70,7 +70,9 @@ export function Footer() {
                   License
                 </span>
                 <br />
-                DRE #02207755
+                Alejandra Gonzalez · DRE #02207755
+                <br />
+                <span className="text-white/40">Legacy Real Estate Inc · CalDRE #02165291</span>
               </p>
             </div>
           </div>
@@ -119,12 +121,35 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Fair Housing Statement */}
+        <div className="mt-16 border-t border-white/5 pt-8">
+          <div className="flex items-start gap-4">
+            <svg
+              className="mt-0.5 h-8 w-8 flex-shrink-0 text-white/30"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-label="Equal Housing Opportunity"
+            >
+              <path d="M12 3L2 9v1h2v10h16V10h2V9L12 3zm0 1.5L20 9h-1v10H5V9H4l8-4.5zM7 11h10v1H7v-1zm0 2.5h10v1H7v-1zm0 2.5h10v1H7v-1z" />
+            </svg>
+            <p className="font-sans text-[10px] leading-relaxed text-white/25">
+              <span className="font-medium text-white/35">Equal Housing Opportunity.</span>{" "}
+              We are pledged to the letter and spirit of U.S. policy for the achievement
+              of equal housing opportunity throughout the Nation. We encourage and support
+              an affirmative advertising and marketing program in which there are no barriers
+              to obtaining housing because of race, color, religion, sex, handicap, familial
+              status, or national origin. This site complies with the Fair Housing Act of 1968,
+              as amended.
+            </p>
+          </div>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="mt-20 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 md:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 md:flex-row">
           <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/20">
             &copy; 2026 Alejandra Gonzalez &bull; Legacy Real Estate Inc
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/privacy"
               className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/20 transition-colors hover:text-gold"
@@ -137,6 +162,20 @@ export function Footer() {
               className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/20 transition-colors hover:text-gold"
             >
               Terms &amp; Conditions
+            </Link>
+            <span className="text-white/10">|</span>
+            <Link
+              href="/fair-housing"
+              className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/20 transition-colors hover:text-gold"
+            >
+              Fair Housing
+            </Link>
+            <span className="text-white/10">|</span>
+            <Link
+              href="/accessibility"
+              className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/20 transition-colors hover:text-gold"
+            >
+              Accessibility
             </Link>
           </div>
           <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/20">
